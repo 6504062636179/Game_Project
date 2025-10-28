@@ -247,7 +247,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
         for (int i = items.size() - 1; i >= 0; i--) {
             Item it = items.get(i);
             // cast ให้เป็น int ผลคำนวณความเร็ว
-            it.y += (int) Math.max(1, Math.round(it.speed * itemSpeedMultiplier));
+            it.y += (int) Math.max(1, Math.round((it.speed + itemSpeed * 0.2) * itemSpeedMultiplier));
+
             if (it.y > 720) items.remove(i);
             else if (collision(it)) {
                 handleItemEffect(it);
